@@ -116,10 +116,9 @@ Learn to containerize your apps with Docker, implement logging with Log4J for ma
 ## 📚 Bonus Learning Tips
 
 - Use free resources like:  
-  - [Baeldung](https://www.baeldung.com/)  
   - [Spring Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)  
   - [Java Guides](https://www.javaguides.net/)  
-  - YouTube tutorials for visual learning
+  - YouTube - Telusko [Java Tutorial For beginners](https://youtube.com/playlist?list=PLsyeobzWxl7pe_IiTfNyr55kwJPWbgxB5&feature=shared)
 
 - Pair reading with implementation:  
   After reading an article, build something small with that concept.
