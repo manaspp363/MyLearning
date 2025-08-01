@@ -2,7 +2,7 @@
 
 ````
 # 📘 TypeScript Notes
-
+````
 ---
 
 ## 🔢 Arithmetic Function  
