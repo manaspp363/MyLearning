@@ -1,8 +1,8 @@
 ---
 
-````
+
 # 📘 TypeScript Notes
-````
+
 ---
 
 ## 🔢 Arithmetic Function  
