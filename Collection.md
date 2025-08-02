@@ -2,7 +2,7 @@
 
 ### ☕️ Java Collections Notes
 
-````markdown
+
 # Java Collections Overview
 
 This guide covers the core of Java Collections Framework including:
@@ -55,7 +55,6 @@ list.get(0);             // "Apple"
 list.set(1, "Mango");
 list.remove("Apple");
 list.contains("Mango");  // true
-````
 
 ### 🔹 LinkedList
 
