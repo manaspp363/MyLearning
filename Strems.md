@@ -1,4 +1,4 @@
-# ☕ Java Stream API – ##Quick Recap Notes
+# ☕ Java Stream API – ## Quick Recap Notes
 
 ## 🧵 What is a Stream in Java?
 
