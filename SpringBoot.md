@@ -141,3 +141,4 @@ By the end of 16 weeks, you’ll have the tools, knowledge, and confidence to:
 ---
 
 📌 **Start learning today. Stay committed. Build things. You don’t need perfect — just progress.**
+📚 Made with ❤️ by ``Navin Reddy sir``` for his course ```Java Tutorial For beginners```.
