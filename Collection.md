@@ -31,8 +31,7 @@ store, access, and manipulate groups of data (objects).
 |--------------|-------------|
 | `Collection` | Interface (root of List, Set, Queue)  
 | `Collections`| Utility class with static methods (`sort()`, `reverse()`, etc.)  
-| Collection API | The whole framework that includes interfaces, classes, and
-                   algorithms for data structures like List, Set, Map, Queue  
+| Collection API | The whole framework that includes interfaces, classes, and algorithms for data structures like List, Set, Map, Queue  
 
 ---
 
