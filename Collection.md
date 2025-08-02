@@ -16,7 +16,8 @@ This guide covers the core of Java Collections Framework including:
 
 ## 🧠 1. What is the Java Collection Framework?
 
-Java Collection Framework (JCF) provides **ready-to-use classes & interfaces** to store, access, and manipulate groups of data (objects).
+Java Collection Framework (JCF) provides **ready-to-use classes & interfaces** to
+store, access, and manipulate groups of data (objects).
 
 ### 🔸 Core Interfaces
 - `Collection` (parent of List, Set, Queue)
@@ -30,7 +31,8 @@ Java Collection Framework (JCF) provides **ready-to-use classes & interfaces** t
 |--------------|-------------|
 | `Collection` | Interface (root of List, Set, Queue)  
 | `Collections`| Utility class with static methods (`sort()`, `reverse()`, etc.)  
-| Collection API | The whole framework that includes interfaces, classes, and algorithms for data structures like List, Set, Map, Queue  
+| Collection API | The whole framework that includes interfaces, classes, and
+                   algorithms for data structures like List, Set, Map, Queue  
 
 ---
 
