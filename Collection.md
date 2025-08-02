@@ -54,7 +54,7 @@ list.get(0);             // "Apple"
 list.set(1, "Mango");
 list.remove("Apple");
 list.contains("Mango");  // true
-
+```
 ### 🔹 LinkedList
 
 * Backed by **doubly-linked list**
@@ -73,6 +73,26 @@ link.remove(0);
 
 * **No duplicates**, unordered or sorted based on implementation
 * Implementations: `HashSet`, `LinkedHashSet`, `TreeSet`
+
+### How to read from Set
+* **1** Enhanced for-loop
+```java
+for (String fruit : mySet) {
+  System.out.println(fruit);
+}
+```
+* **2** Iterator
+```java
+Iterator<Integer> iterator = numbers.iterator();
+while (iterator.hasNext()) {
+  System.out.println(iterator.next());
+}
+```
+* **3** Converting to another Collection, Array or ArrayList
+```java
+ArrayList<String> itemList = new ArrayList<>(items);
+String firstItem = itemList.get(0);
+```
 
 ### 🔹 HashSet
 
@@ -107,6 +127,7 @@ Set<Integer> ts = new TreeSet<>();
 ts.add(30);
 ts.add(10);
 ts.add(20);  // Sorted: 10, 20, 30
+System.out.println(ts); // [10, 20, 30]
 ```
 
 ---
