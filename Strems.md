@@ -112,3 +112,4 @@ boolean anyMatch(Predicate<T> predicate)
 - Ideal for **clean**, **concise**, and **parallelizable** code.
 
 ---
+📚 Made with ❤️ by ```Manas Pandey``` for working with collection in efficient manner.
