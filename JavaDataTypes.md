@@ -181,6 +181,4 @@ matrix[0][1] = 10;
 - Arrays are basic but limited; prefer `ArrayList` for flexibility  
 
 ---
-
-📚 *Made with ❤️ by Manas Pandey while learning Java collections and core concepts.*
-```
+📚 *Made with ❤️ by ```Manas Pandey``` while learning Java collections and core concepts.*
