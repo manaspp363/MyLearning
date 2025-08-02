@@ -31,7 +31,7 @@ This repository includes a PDF file containing detailed notes and hands-on examp
 ---
 
 📄 **File included:**  
-- `TypeScript.pdf` – Full notes with working code examples
-📚 Made with ❤️ by ```Manas Pandey``` while learning FrontEnd.
+- `TypeScript.pdf` – Full notes with working code examples.
+- 📚 Made with ❤️ by ```Manas Pandey``` while learning FrontEnd.
 ---
 
