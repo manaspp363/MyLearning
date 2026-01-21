@@ -232,7 +232,7 @@ Instead of creating a new thread for every task, you **submit tasks to the pool*
 
 Managed by the **`ExecutorService`** in Java.
 
-###ThreadPool
+### ThreadPool
 - **Performance** → Avoids the overhead of creating/destroying threads for each task  
 - **Resource Management** → Limits the number of concurrent threads (prevents CPU/memory exhaustion)  
 - **Scalability** → Efficiently handles many short-lived or long-running tasks  
