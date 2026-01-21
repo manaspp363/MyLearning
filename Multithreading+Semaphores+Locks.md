@@ -224,10 +224,6 @@ Semaphore acts as a **permit counter**:
 ### Coordination
 * `wait()`, `notify()`, `notifyAll()`
 * `signal()`
-
----
-
-````markdown
 ---
 
 ## Thread Pool
