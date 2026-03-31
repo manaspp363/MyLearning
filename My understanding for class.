@@ -1,0 +1,39 @@
+To test this exact `CUSTOMER_CREATED` payload and make sure the whole flow works flawlessly from end to end, here is your explicit step-by-step checklist:
+
+### Step 1: Ensure Kafka & MySQL are Running
+Before the applications can start, the foundations must be ready. 
+1. **Start Kafka**: If you haven't yet, run `docker compose up -d` in the `Docker` folder.
+2. **Start MySQL**: Make sure your local MySQL is running on `localhost:3306`.
+3. **Verify Database Structure**: Ensure that you have already executed the [routing_key_config.sql](cci:7://file:///Users/manaspeeyushpandey/Desktop/alertpocbank/notification-consumer/target/classes/Scripts/routing_key_config.sql:0:0-0:0) and [template_master.sql](cci:7://file:///Users/manaspeeyushpandey/Desktop/alertpocbank/notification-consumer/target/classes/Scripts/template_master.sql:0:0-0:0) scripts in your MySQL `alert` database. *(I have verified from your project files that templates for `CUSTOMER_CREATED` already exist, so you are good to go!)*
+
+### Step 2: Start the Consumer
+The Consumer must be listening *before* the Producer sends the event, so we launch it first.
+1. Open a terminal and navigate to the `notification-consumer` folder.
+2. Run the command: `mvn clean spring-boot:run`
+3. Wait until you see `Started NotificationConsumerApplication`.
+
+### Step 3: Start the Producer
+Now we start the application that will send the event.
+1. Open a **second terminal window** and navigate to the `Producer_Setup` folder.
+2. Run the command: `mvn clean spring-boot:run`
+3. Wait until you see `Started ProducerSetupApplication`. (You will see it polling the database every 10 seconds).
+
+### Step 4: Inject Your Test Payload (The Trigger!)
+Now it's time to test your exact payload!
+1. Open your web browser and go to the Producer's Database Console: http://localhost:8080/h2-console
+2. Connect with **JDBC URL:** `jdbc:h2:mem:alertdb`, **User Name:** `sa`, and **Password:** *[Leave Blank]*.
+3. In the SQL text box, paste your exact query:
+   ```sql
+   INSERT INTO payload_mst (payload_type,payload,topic_status,is_active,created_by) VALUES ('CUSTOMER_CREATED','{"businessKey":"POCBank|PH0099001|CUSTACT260001POCBK7Y","aliasInfo":null,"commandType":null,"correlationId":null,"dateTime":"2026-02-27T08:30:00.000+0000","deviceid":null,"entityId":null,"entityName":null,"eventId":"b2c3d4e5-333-999-bcde-ttt31","eventSourceId":"POCBank","headers":null,"operation":null,"operationInstanceId":null,"organizationId":null,"priority":null,"sequenceInstanceId":null,"sequenceNo":null,"serviceRequestComment":null,"serviceRequestId":null,"sourceRequestIdentifier":null,"sourceUri":"https://temenos.com/microservice/cloudevents/POCBank","status":"PROCESSED","subject":"event","tenantId":null,"tracecontext":null,"transactionDate":null,"userId":null,"businessObjects":null,"eventType":"CustomerEvents-CustomerCreated_CU_ACTIVITY_EVENT","payload":{"APPLICATIONCUSTOMERDetails":[{"applicationcustomerid":"300002","applicationcustomername1List":{"applicationcustomername1":[{"applicationcustomername1":"Maria Santos","language":"GB"}]}}],"eventCommon":{"companyId":"PH0099001","application":"CRM.DIGI.CUSTOMER,CUSTOMER-CREATION-SUCCESS","creationTime":"2026-02-27T08:30:00.000Z","today":"2026-02-27","customCommon":{"timeInLocal":"2026-02-27T16:30:00.000 Asia/Manila","ArrangementActivityReference":"CUSTACT260001POCBK7Y","ActivityContext":"User-Auth","ActivityStatus":"AUTH","ImmediateParentReference":"CUSTACT260001POCBK7Y","ParentReference":"CUSTACT260001POCBK7Y","Simulation":"NO"},"operator":"POCUSR00101","transactionStage":"CU.ACT.AUTH.RTN"},"customFieldDetails":{"MessageType":"BOTH","to":"test@gmail.com","mobileNumber":"12345","legalCompanyCode": "RB","alertType":"CUSTOMER_CREATED","Release":"R25","originatingsource":"https://temenos.com/microservice/cloudevents/POCBank","customer_id":"","customer_name":"","timestamp":"2026-02-27T08:30:00Z","amount":"500.00","loan_account":"1237567890","txn_ref":"TPHREF260001POCBK","days_overdue":"12","min_amount_due":"1500.00","grace_date":"2027-03-10","loan_ref":"LNREF268001POCBK","beneficiary_name":"Maruthi","beneficiary_id":"AAACT269002POCBK8M"}}}','PENDING',TRUE,'SYSTEM');
+   ```
+4. Click **Run**. 
+
+### Step 5: Verify the Processing
+Because you set `topic_status` to `'PENDING'`, within 10 seconds, the flow will automatically trigger. 
+1. **Producer Terminal:** Look for logs stating that it picked up the `'CUSTOMER_CREATED'` event and successfully pushed to `notifications.events` Kafka topic.
+2. **Consumer Terminal:** Look closely at the logs! Because your payload says `"MessageType":"BOTH"`, you should see the Consumer:
+   * Process the event-type: `CustomerEvents-CustomerCreated_CU_ACTIVITY_EVENT`.
+   * Find the matching template in MySQL.
+   * Generate **two logs**: one for preparing an **Email** (to `test@gmail.com`) and one for preparing an **SMS** (to `12345`).
+
+If you see the final formatted email and SMS bodies printed out in the Consumer's console log, your end-to-end functionality is working perfectly!
