@@ -57,11 +57,11 @@ The Consumer needs a database to look up predefined notification templates.
 2. Connect to your local MySQL (Host: `localhost`, Port: `3306`).
 3. Execute the following SQL query to create the database:
    ```sql
-   CREATE DATABASE alert;
+   CREATE DATABASE POCALERT;
    ```
 4. Tell your client to use the newly created database:
    ```sql
-   USE alert;
+   USE POCALERT;
    ```
 5. The Java application expects your database **Username to be: `root`** and **Password to be: `root1234`**. 
    *(⚠️ If your local MySQL password is different, you MUST update lines 10 & 11 in the file [notification-consumer/src/main/resources/application.yml](file:///Users/manaspeeyushpandey/Desktop/alertpocbank/notification-consumer/src/main/resources/application.yml) before proceeding).*
